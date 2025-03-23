@@ -1,0 +1,25 @@
+{
+  "name": "admibar",
+  "version": "1.0.0",
+  "description": "Este proyecto es un sistema de administracion para un bar, y es el proyecto de grado",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cuatrozero1@gmail.com"
+  },
+  "keywords": [
+    "SASS",
+    "PROYECTO",
+    "SENA"
+  ],
+  "author": "Jhonatan Smith P Y Jhon Alexander G",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.85.1"
+  }
+}
