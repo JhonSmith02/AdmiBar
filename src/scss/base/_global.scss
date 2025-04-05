@@ -17,6 +17,7 @@ body{
     font-optical-sizing: auto;
     font-style: normal;
     color: v.$negro;
+    background-color: aqua;
 }
 
 p{
@@ -60,3 +61,21 @@ img{
     display: block;
 }
 
+input {
+    background-color: #f0f0f0; /* Color de fondo */
+    border: 2px solid #797979; /* Borde sólido */
+    border-radius: 0px; /* Bordes redondeados */
+    padding: 2rem; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+.button {
+    font-size:2.5rem;
+    width: 10vw;
+    height: 5vh;
+    background-color: v.$azul_claro;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

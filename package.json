@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Este proyecto es un sistema de administracion para un bar, y es el proyecto de grado",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "gulp dev"
   },
