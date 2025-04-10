@@ -12,8 +12,6 @@ export function css ( done ){
     done(); //Le indica a la funcion que su tarea a finalizado.
 }
 
-export function dev(){
-
-    watch('src/scss/**/*.scss', css);
-
+export function dev (){
+    watch('src/scss/**/*.scss', css());
 }
