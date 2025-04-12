@@ -12,7 +12,7 @@
     <a href="../../index.html">Ir a index</a>
     <div class="login-section contenedor">
         <div class="login-form">
-            <div class="form-contain">
+            <form class="form-contain" action="login.php" method="POST">
                 <div class="title-login">
                     <h2>Ingrese usuario</h2>
                 </div>
@@ -24,7 +24,7 @@
                         type="text"
                         id="usuario"
                         name="usuario"
-                        placeholder="Ingrese su susuario"
+                        placeholder="Ingrese susuario"
                         required
                         >
                     </div>
@@ -33,16 +33,16 @@
                         <label for="contraseña">Contraseña</label>
                         <input 
                         type="password"
-                        id="contraseña"
-                        name="contraseña"   
-                        placeholder="Ingrese su contraseña"
+                        id="password"
+                        name="password"   
+                        placeholder="Ingrese contraseña"
                         required
                         >
                     </div>
 
                     <button type="submit" class="send-form button">Iniciar</button>
                 </div>
-            </div>
+            </form>
         </div>
 
         <div class="login-logo">
