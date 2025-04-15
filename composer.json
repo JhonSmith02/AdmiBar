@@ -1,0 +1,17 @@
+{
+    "name": "cuatr/admibar",
+    "description": "Proyecto de grado",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "./clases/"
+        }
+    },
+    "authors": [
+        {
+            "name": "JhonSmith",
+            "email": "cuatrozero1@gmail.com"
+        }
+    ],
+    "require": {}
+}

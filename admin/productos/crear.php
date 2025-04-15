@@ -1,0 +1,71 @@
+<?php
+
+require '../../includes/app.php';
+
+use App\Producto;
+
+//Conexion a la base de datos
+$db = new database();
+$dbc = $db->getConexion();
+
+
+$queryCategoria = "SELECT * FROM categoria";
+$stmt = $dbc->prepare($queryCategoria);
+$stmt->execute();
+$categoria = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+//Validacion ara verificar el metodo de envio de datos
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $producto = new Producto($_POST);
+
+    $producto->save();
+
+    // debuguear($producto);
+}
+
+
+?>
+
+
+<main>
+    <h1>Crear Productos</h1>
+
+    <a href="../index.php">volver</a>
+
+    <form action="crear.php" method="POST" style="display: flex; flex-direction: column; width: 200px;">
+
+        <label for=" ">Nombre</label>
+        <input type="text" name="nombre">
+
+        <label for=" ">marca</label>
+        <input type="text" name="marca">
+
+        <label for=" ">precio</label>
+        <input type="number" name="precio">
+
+        <label for=" ">iva</label>
+        <input type="number" name="iva">
+
+        <label for=" ">descripcion</label>
+        <input type="text" name="descripcion">
+
+        <label for=" ">Categoria</label>
+        <select name="categoria_id_categoria" id="">
+            <option value="" disabled selected>Selecciona</option>
+            <?php foreach ($categoria as $row): ?>
+                <option value="<?php echo $row['id_categoria']; ?>"><?php echo $row['nombre']; ?></option>
+            <?php endforeach; ?>
+        </select>
+        <label for=" ">Proveedor</label>
+        <select name="proveedor_id_proveedor" id="">
+            <option value="" disabled selected>Selecciona</option>
+            <option value="002">JhonSmith</option>
+                
+        </select>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+
+</main>
