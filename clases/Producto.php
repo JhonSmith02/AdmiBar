@@ -29,6 +29,10 @@ class Producto{
     }
 
     public function save(){
+        //Sanitizar los datos antes de enviarlos a la base de datos
+
+
+
         $query = "INSERT INTO producto (nombre, marca, precio, iva, descripcion, categoria_id_categoria, proveedor_id_proveedor)
             VALUES ('$this->nombre', '$this->marca', '$this->precio', '$this->iva', '$this->descripcion', '$this->categoria_id_categoria', '$this->proveedor_id_proveedor')";
 

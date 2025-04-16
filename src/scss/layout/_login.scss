@@ -1,4 +1,4 @@
-// @use 'variables' as v;
+@use 'base/variables' as v;
 
 .login-section {
     width: 100vw;
@@ -24,7 +24,7 @@
 
 .title-login h2 {
     margin-top: 0;
-    color: #333;
+    color: #000;
     font-size: 5.5rem;
 }
 
