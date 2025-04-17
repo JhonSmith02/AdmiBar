@@ -1,0 +1,83 @@
+@use 'base/variables' as v;
+
+.con-inv {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px v.$gris_oscuro;
+}
+
+.nav-optioncontain {
+    display: flex;
+    align-items: center;
+    gap: 3vh;
+}
+
+.nav-option ul {
+    list-style: none;
+    display: flex;
+    gap: 2vh;
+}
+
+.nav-option a {
+    text-decoration: none;
+    color: v.$negro;
+}
+
+.nav-option ul,
+.nav-salir {
+    font-size: 1.8rem;
+    font-weight: 200;
+}
+
+.nav-salir span {
+    cursor: pointer;
+}
+
+.cuerpo-inventario {
+    display: flex;
+    flex: 1;
+}
+
+.lateral-opt {
+    width: 30%;
+    padding: 2vw;
+    border-right: solid 1px #ABA9A9;
+    gap: 3vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.lateral-icon {
+    width: 6rem;
+}
+
+.later-component {
+    display: flex;
+    align-items: center;
+    font-size: 1.75rem;
+}
+
+span.user-name {
+    font-size: 1.4rem;
+}
+
+.inventary-contain {
+    width: 70%;
+    padding: 2rem 4vw;
+}
+
+.iventary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.serch-inventory {
+    width: 84%;
+}

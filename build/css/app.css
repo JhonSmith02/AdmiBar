@@ -380,11 +380,13 @@ input {
   font-size: 2.5rem;
   width: 10vw;
   height: 5vh;
+  padding-top: 0.7rem;
   background-color: #5ABAFF;
   border-radius: 0.5rem;
   border: none;
   color: white;
   cursor: pointer;
+  text-align: center;
 }
 
 .login-section {
@@ -445,6 +447,7 @@ input {
   align-items: baseline;
   justify-content: space-evenly;
   padding-left: 3rem;
+  border-left: solid 1px #ABA9A9;
 }
 
 .logo-formcontainer {
@@ -453,4 +456,86 @@ input {
 
 .creditos span {
   font-size: 2rem;
+}
+
+.con-inv {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #ABA9A9;
+}
+
+.nav-optioncontain {
+  display: flex;
+  align-items: center;
+  gap: 3vh;
+}
+
+.nav-option ul {
+  list-style: none;
+  display: flex;
+  gap: 2vh;
+}
+
+.nav-option a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.nav-option ul,
+.nav-salir {
+  font-size: 1.8rem;
+  font-weight: 200;
+}
+
+.nav-salir span {
+  cursor: pointer;
+}
+
+.cuerpo-inventario {
+  display: flex;
+  flex: 1;
+}
+
+.lateral-opt {
+  width: 30%;
+  padding: 2vw;
+  border-right: solid 1px #ABA9A9;
+  gap: 3vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.lateral-icon {
+  width: 6rem;
+}
+
+.later-component {
+  display: flex;
+  align-items: center;
+  font-size: 1.75rem;
+}
+
+span.user-name {
+  font-size: 1.4rem;
+}
+
+.inventary-contain {
+  width: 70%;
+  padding: 2rem 4vw;
+}
+
+.iventary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.serch-inventory {
+  width: 84%;
 }
