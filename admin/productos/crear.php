@@ -16,6 +16,8 @@ $categoria = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //Validacion ara verificar el metodo de envio de datos
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+
+    debuguear($_POST);
     $producto = new Producto($_POST);
 
     $errors = $producto->validate();

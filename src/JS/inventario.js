@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         modal.innerHTML = `
             <div class="modal-content">
-                <form id="formulario-producto">
+                <form action="../../../admin/productos/inventario.php" method="POST" id="formulario-producto">
         <button type="button" id="cerrar" class="send-form button">Cancelar</button>
         <div class="iventary-header inv-form">
             <h2>Registro de producto</h2>
@@ -24,10 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <label for="usuario">Nombre del producto</label>
                     <input 
                     type="text"
-                    id="nombre-prod"
-                    name="nombre-prod"
+                    id="nombre"
+                    name="nombre"
                     placeholder="Nombre producto"
-                    required
+                    
                     >
                 </div>
         
@@ -35,20 +35,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     <label for="marca">Marca del producto</label>
                     <input 
                     type="text"
-                    id="marca-producto"
-                    name="marca-producto"
+                    id="marca"
+                    name="marca"
                     placeholder="Marca del producto"
-                    required
+                    
                     >
                 </div>
                 <div class="form-group">
                     <label for="proovedor">Proovedor</label>
                     <input 
                     type="text"
-                    id="nombre-proovedor"
-                    name="nombre-proovedor"
+                    id="proveedor_id_proveedor"
+                    name="proveedor_id_proveedor"
                     placeholder="Proovedor"
-                    required
+                    
                     >
                 </div>
             </div>
@@ -56,48 +56,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="form-group">
                     <label for="precio">Precio del Producto</label>
                     <input 
-                    type="text"
-                    id="precio-prod"
-                    name="precio-prod"
+                    type="number"
+                    id="precio"
+                    name="precio"
                     placeholder="precio producto"
-                    required
+                    
                     >
                 </div>
         
                 <div class="form-group">
-                    <label for="tipo">tipo del producto</label>
+                    <label for="tipo">Categoria Producto</label>
                     <input 
                     type="text"
-                    id="tipo-prod"
-                    name="tipo-prod"
-                    placeholder="Tipo producto"
-                    required
+                    id="categoria_id_categoria"
+                    name="categoria_id_categoria"
+                    placeholder="Categoria Producto"
+                    
                     >
                 </div>
         
                 <div class="form-group">
-                    <label for="stock">Cantidad del producto</label>
+                    <label for="stock">Iva</label>
                     <input 
-                    type="text"
-                    id="stock-prod"
-                    name="stock-prod"
-                    placeholder="Cantidad producto"
-                    required
+                    type="number"
+                    id="iva"
+                    name="iva"
+                    placeholder="Impuesto Iva"
+                    
                     >
                 </div>
             </div>
 
-        </div>
-        
-        <div class="form-group form-out">
-            <label for="noc">El que me dijo que pusiera pero no recuerdo</label>
-            <input 
-            type="text"
-            id="noc"
-            name="noc"
-            placeholder="El que falta"
-            required
-            >
         </div>
 
         <div class="form-group form-out">
@@ -120,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('formulario-producto').addEventListener('submit', e => {
             e.preventDefault();
 
-            alert('Producto registrado (supongo :D)');
             modal.remove();
         });
     });
