@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     <link rel="stylesheet" href="build/css/app.css">
-    <title>Document</title>
+    <title>Inventario</title>
 </head>
 
-<body>
-    <div class="contenedor con-inv">
+<script src="./src/JS/inventario.js"></script>
 
-        <div class="navbar">
+<body>
+    <div class="con-inv">
+
+        <nav class="navbar">
             <div class="nav-logo">
                 <img src="./src/images/navbar-log.png" alt="nav_log">
             </div>
@@ -32,7 +34,7 @@
                 </div>
             </div>
 
-        </div>
+        </nav>
 
         <div class="cuerpo-inventario">
 
@@ -49,14 +51,14 @@
                     </div>
                 </div>
     
-                <div class="later-component">
+                <aside class="later-component">
                     <div class="lateral-icon">
                         <img src="./src/images/lector-tarj.png" alt="Lector-icon">
                     </div>
                     <div class="laterl-information">
                         <span>VENTA</span>
                     </div>
-                </div>
+                </aside>
 
                 <div class="later-component">
                     <div class="lateral-icon">
@@ -86,8 +88,25 @@
                 </div>
 
                 <div class="tabla-prod">
-                    <div class="producto1">
-                        .id
+                    <div class="producto">
+                        <div class="id-producto">001</div>
+
+                        <div class="name-producto">Cola lok 👀</div>
+
+                        <div class="price-producto">3 peso</div>
+
+                        <div class="stock-producto">
+                            6
+                        </div>
+
+                        <div class="action-producto">
+                            <div class="editar-pro">
+                                
+                            </div>
+                            <div class="delete-pro">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
