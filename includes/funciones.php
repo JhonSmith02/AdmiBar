@@ -8,7 +8,6 @@ function agregarTemplate($nombre ){
 }
 
 
-
 function debuguear($variable){
 
     echo "<pre>";

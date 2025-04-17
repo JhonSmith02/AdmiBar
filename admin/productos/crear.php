@@ -8,7 +8,6 @@ use App\Producto;
 $db = new database();
 $dbc = $db->getConexion();
 
-
 $queryCategoria = "SELECT * FROM categoria";
 $stmt = $dbc->prepare($queryCategoria);
 $stmt->execute();
@@ -19,11 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $producto = new Producto($_POST);
 
+    $errors = $producto->validate();
+
+    debuguear($producto::getErrors());
+
     $producto->save();
 
     // debuguear($producto);
 }
-
 
 ?>
 
