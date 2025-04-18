@@ -80,7 +80,7 @@ $producto = new Producto();
                         <img src="./src/images/usuario.png" alt="Lector-icon">
                     </div>
                     <div class="laterl-information">
-                        <span>Proovedor</span>
+                        <span>Proveedor</span>
                     </div>
                 </div>
             </div>
@@ -137,11 +137,50 @@ $producto = new Producto();
 
                     </tbody>
                 </table>
+
+                <div id="paginacion" class="paginacion">
+                    <button onclick="cambiarPagina(-1)"> << Anterior</button>
+                    <span id="pagina-actual">1</span>
+                    <button onclick="cambiarPagina(1)">Siguiente >></button>
+                </div>
+
             </div>
 
         </div>
 
     </div>
 </body>
+
+<script>
+    const filasPorPagina = 5;
+    let paginaActual = 1;
+
+    const tabla = document.querySelector(".tabla-productos tbody");
+    const filas = Array.from(tabla.rows);
+    const totalPaginas = Math.ceil(filas.length / filasPorPagina);
+    const spanPagina = document.getElementById("pagina-actual");
+
+    function mostrarPagina(pagina) {
+        const inicio = (pagina - 1) * filasPorPagina;
+        const fin = inicio + filasPorPagina;
+
+        filas.forEach((fila, index) => {
+            fila.style.display = index >= inicio && index < fin ? "" : "none";
+        });
+
+        spanPagina.textContent = paginaActual;
+    }
+
+    function cambiarPagina(direccion) {
+        const nuevaPagina = paginaActual + direccion;
+
+        if (nuevaPagina < 1 || nuevaPagina > totalPaginas) return;
+
+        paginaActual = nuevaPagina;
+        mostrarPagina(paginaActual);
+    }
+    mostrarPagina(paginaActual);
+</script>
+
 
 </html>

@@ -42,12 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     >
                 </div>
                 <div class="form-group">
-                    <label for="proovedor">Proovedor</label>
+                    <label for="proveedor">Proveedor</label>
                     <input 
                     type="text"
                     id="proveedor_id_proveedor"
                     name="proveedor_id_proveedor"
-                    placeholder="Proovedor"
+                    placeholder="Proveeedor"
                     
                     >
                 </div>
