@@ -81,6 +81,18 @@ span.user-name {
 
 .serch-inventory {
     width: 95%;
+    border: none;
+    outline: none;
+}
+
+.buscador {
+    align-items: center;
+    display: flex;
+}
+
+.search-inv {
+    background-color: v.$gris_claro;
+    padding: 0 1rem;
 }
 
 
@@ -197,6 +209,9 @@ span.user-name {
     cursor: pointer;
     border-radius: 5px;
     font-size: 18px;
+    width: 8rem;
+    height: 5rem;
+    padding: 0 2rem;
 }
 
 .btn.editar {
@@ -205,4 +220,27 @@ span.user-name {
 
 .btn.eliminar {
     background-color: v.$rojo_claro;
+}
+
+
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.paginacion button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #444;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.paginacion span {
+    font-weight: bold;
+    font-size: 16px;
 }
