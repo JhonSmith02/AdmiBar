@@ -7,7 +7,6 @@ function agregarTemplate($nombre ){
     include TEMPLATES_URL . "/{$nombre}.php";
 }
 
-
 function debuguear($variable){
 
     echo "<pre>";
