@@ -13,7 +13,7 @@ $stmt = $dbc->prepare($queryCategoria);
 $stmt->execute();
 $categoria = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$producto = new Producto($_POST);
+$producto = new Producto();
 
 
 

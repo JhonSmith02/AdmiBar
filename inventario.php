@@ -1,3 +1,17 @@
+<?php
+require 'includes/app.php';
+
+use App\Producto;
+
+$db = new database();
+$dbc = $db->getConexion();
+
+$producto = new Producto();
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,40 +109,32 @@
                             <th>NOMBRE</th>
                             <th>MARCA</th>
                             <th>PRECIO</th>
+                            <th>IVA</th>
+                            <th>DESCRIPCION</th>
+                            <th>CATEGORIA</th>
+                            <th>PROVEEDOR</th>
                             <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>Coca-Cola</td>
-                            <td>Coca-Cola</td>
-                            <td>6.000$</td>
-                            <td>
-                                <button class="btn editar"><i class="icon-pencil">✏️</i></button>
-                                <button class="btn eliminar"><i class="icon-delete">❌</i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>002</td>
-                            <td>Piolo</td>
-                            <td>Marca</td>
-                            <td>2.500$</td>
-                            <td>
-                                <button class="btn editar"><i class="icon-pencil">✏️</i></button>
-                                <button class="btn eliminar"><i class="icon-delete">❌</i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>003</td>
-                            <td>cerveza</td>
-                            <td>Corona</td>
-                            <td>6.000$</td>
-                            <td>
-                                <button class="btn editar"><i class="icon-pencil">✏️</i></button>
-                                <button class="btn eliminar"><i class="icon-delete">❌</i></button>
-                            </td>
-                        </tr>
+
+                        <?php foreach ($producto::all() as $row): ?>
+                            <tr>
+                                <td><?php echo $row->id_producto; ?></td>
+                                <td><?php echo $row->nombre; ?></td>
+                                <td><?php echo $row->marca; ?></td>
+                                <td><?php echo $row->precio; ?></td>
+                                <td><?php echo $row->iva; ?></td>
+                                <td><?php echo $row->descripcion; ?></td>
+                                <td><?php echo $row->categoria_id_categoria; ?></td>
+                                <td><?php echo $row->proveedor_id_proveedor; ?></td>
+                                <td>
+                                    <button class="btn editar"><i class="icon-pencil">✏️</i></button>
+                                    <button class="btn eliminar"><i class="icon-delete">❌</i></button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+
                     </tbody>
                 </table>
             </div>
