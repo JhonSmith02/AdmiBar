@@ -13,18 +13,27 @@ $stmt = $dbc->prepare($queryCategoria);
 $stmt->execute();
 $categoria = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$producto = new Producto($_POST);
+
+
+
+
+
+
 //Validacion ara verificar el metodo de envio de datos
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
-    debuguear($_POST);
     $producto = new Producto($_POST);
 
     $errors = $producto->validate();
 
-    debuguear($producto::getErrors());
+    // debuguear($producto::getErrors());
 
     $producto->save();
+
+    // $producto::all();
+
 
     // debuguear($producto);
 }
@@ -71,5 +80,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Enviar</button>
 
     </form>
+
+
+    <table>
+        <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>MARCA</th>
+                    <th>PRECIO</th>
+                    <th>IVA</th>
+                    <th>DESCRIPCION</th>
+                    <th>CATEGORIA</th>
+                    <th>PROVEEDOR</th>
+                </tr>
+        </thead>
+
+        <tbody>
+                <?php foreach($producto::all() as $row): ?>
+                    <tr>
+                    <td><?php  echo $row->id_producto;?></td>
+                    <td><?php echo $row->nombre; ?></td>
+                    <td><?php echo $row->marca; ?></td>
+                    <td><?php echo $row->precio; ?></td>
+                    <td><?php echo $row->iva; ?></td>
+                    <td><?php echo $row->descripcion; ?></td>
+                    <td><?php echo $row->categoria_id_categoria;?></td>
+                    <td><?php echo $row->proveedor_id_proveedor;?></td>
+                    </tr> 
+                <?php endforeach; ?> 
+        </tbody>
+    </table>
 
 </main>
