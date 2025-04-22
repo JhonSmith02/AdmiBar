@@ -368,7 +368,7 @@ img {
   display: block;
 }
 
-input {
+input, select {
   background-color: #f0f0f0; /* Color de fondo */
   border: 2px solid #797979; /* Borde sólido */
   border-radius: 0px; /* Bordes redondeados */
@@ -380,7 +380,6 @@ input {
   font-size: 2.5rem;
   width: 10vw;
   height: 5vh;
-  padding-top: 0.7rem;
   background-color: #5ABAFF;
   border-radius: 0.5rem;
   border: none;
@@ -566,6 +565,20 @@ span.user-name {
   z-index: 9999;
 }
 
+.hidden {
+  display: none;
+}
+
+#modal-add {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4117647059);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .modal-content {
   background-color: white;
   padding: 2rem;
@@ -574,6 +587,10 @@ span.user-name {
   width: 90%;
   max-width: 80%;
   height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .inv-form {
@@ -615,10 +632,6 @@ span.user-name {
   width: 35%;
 }
 
-.columna input {
-  margin-left: 17px;
-}
-
 .form-out {
   width: 60%;
   justify-self: center;
@@ -628,6 +641,11 @@ span.user-name {
   margin-left: 17px;
   border: none;
   height: 5rem;
+}
+
+.columna select {
+  border: none;
+  margin-left: 17px;
 }
 
 #observaciones {
@@ -667,7 +685,7 @@ span.user-name {
 }
 
 .btn.editar {
-  background-color: #24F82B;
+  background-color: #2ce132;
 }
 
 .btn.eliminar {
@@ -694,4 +712,8 @@ span.user-name {
 .paginacion span {
   font-weight: bold;
   font-size: 16px;
+}
+
+.input-error {
+  background-color: #ffd1d1;
 }

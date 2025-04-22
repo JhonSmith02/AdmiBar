@@ -24,7 +24,6 @@ $producto = new Producto();
     <title>Inventario</title>
 </head>
 
-<script src="./src/JS/inventario.js"></script>
 
 <body>
     <div class="con-inv">
@@ -89,7 +88,7 @@ $producto = new Producto();
                 <div class="iventary-header">
                     <h2>INVENTARIO</h2>
 
-                    <button class="button">+ REGISTRAR </button>
+                    <button id="openModal" class="button but-register">+ REGISTRAR </button>
                 </div>
 
                 <div class="search-inv">
@@ -119,37 +118,120 @@ $producto = new Producto();
                     <tbody>
 
                         <?php foreach ($producto::all() as $row): ?>
-                            <tr>
-                                <td><?php echo $row->id_producto; ?></td>
-                                <td><?php echo $row->nombre; ?></td>
-                                <td><?php echo $row->marca; ?></td>
-                                <td><?php echo $row->precio; ?></td>
-                                <td><?php echo $row->iva; ?></td>
-                                <td><?php echo $row->descripcion; ?></td>
-                                <td><?php echo $row->categoria_id_categoria; ?></td>
-                                <td><?php echo $row->proveedor_id_proveedor; ?></td>
-                                <td>
-                                    <button class="btn editar"><i class="icon-pencil">✏️</i></button>
-                                    <button class="btn eliminar"><i class="icon-delete">❌</i></button>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                <?php echo $row->id_producto; ?>
+                            </td>
+                            <td>
+                                <?php echo $row->nombre; ?>
+                            </td>
+                            <td>
+                                <?php echo $row->marca; ?>
+                            </td>
+                            <td>
+                                <?php echo $row->precio; ?>
+                            </td>
+                            <td>
+                                <?php echo $row->iva; ?>
+                            </td>
+                            <td>
+                                <?php echo $row->descripcion; ?>
+                            </td>
+                            <td>
+                                <?php echo $row->categoria_id_categoria; ?>
+                            </td>
+                            <td>
+                                <?php echo $row->proveedor_id_proveedor; ?>
+                            </td>
+                            <td>
+                                <button class="btn editar"><i class="icon-pencil"><img
+                                            src="./src/images/4213598-doodle-education-line-pen-pencil-school-science_115491.ico"
+                                            alt=""></i></button>
+                                <button class="btn eliminar"><i class="icon-delete"><img
+                                            src="./src/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico"
+                                            alt=""></i></button>
+                            </td>
+                        </tr>
                         <?php endforeach; ?>
 
                     </tbody>
                 </table>
 
                 <div id="paginacion" class="paginacion">
-                    <button onclick="cambiarPagina(-1)"> << Anterior</button>
-                    <span id="pagina-actual">1</span>
-                    <button onclick="cambiarPagina(1)">Siguiente >></button>
+                    <button onclick="cambiarPagina(-1)">
+                        << Anterior</button>
+                            <span id="pagina-actual">1</span>
+                            <button onclick="cambiarPagina(1)">Siguiente >></button>
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+        <section class= "hidden" id ="modal-add">
+
+            <div class="modal-content">
+                <form id="formulario-producto">
+                    <button type="button" id="cerrar" class="send-form button">Cancelar</button>
+                    <div class="iventary-header inv-form">
+                        <h2>Registro de producto</h2>
+                        <button type="submit" class="send-form button">Crear</button>
+                    </div>
+                    <div class="columnas-crear">
+                        <div class="columna">
+                            <div class="form-group">
+                                <label for="usuario">Nombre del producto</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Nombre producto">
+                            </div>
+                            <div class="form-group">
+                                <label for="marca">Marca del producto</label>
+                                <input type="text" id="marca" name="marca" placeholder="Marca del producto">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="stock">Iva</label>
+                                <input type="number" id="iva" name="iva" placeholder="Impuesto Iva">
+                            </div>
+                            <div class="form-group">
+                                <label for="precio">Precio del Producto</label>
+                                <input type="number" id="precio" name="precio" placeholder="Precio producto">
+                            </div>
+                        </div>
+                        <div class="columna">
+                            <div class="form-group">
+                                <label for="proveedor">Proveedor</label>
+                                <select type="text" id="proveedor_id_proveedor" name="proveedor_id_proveedor">
+                                    <option value="alguien">Alguien</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tipo">Categoria Producto</label>
+                                <select type="text" id="categoria_id_categoria" name="categoria_id_categoria">
+                                <option value="non">Alguien</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fila">
+                        <div class="form-group form-out">
+                        <label class="crear-observacion" for="observaciones">Observaciones</label>
+                        <input type="text" id="observaciones" name="observaciones">
+                    </div>
+                    </div>
+                    
+                </form>
+            </div>
+
+        </div>
+
+        </section>
+
+        
 </body>
+
+<script src="./src/JS/inventario.js"></script>
 
 <script>
     const filasPorPagina = 5;

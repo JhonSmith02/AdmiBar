@@ -1,115 +1,79 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const botonRegistrar = document.querySelector('.button');
+document.getElementById('openModal').addEventListener("click", () => {
+    document.getElementById('modal-add').classList.remove('hidden')
+})
 
-    botonRegistrar.addEventListener('click', () => {
-        if (document.getElementById('modal-form')) return;
+document.getElementById('cerrar').addEventListener('click', () => {
+    document.getElementById('modal-add').classList.add('hidden');
+});
 
-        const modal = document.createElement('div');
-        modal.id = 'modal-form';
-        modal.classList.add('modal-form');
+window.addEventListener('click', (e) => {
+    if (e.target.id === 'modal-add') {
+        document.getElementById('modal-add').classList.add('hidden');
+    }
+});
 
-        modal.innerHTML = `
-            <div class="modal-content">
-                <form action="../../../admin/productos/inventario.php" method="POST" id="formulario-producto">
-        <button type="button" id="cerrar" class="send-form button">Cancelar</button>
-        <div class="iventary-header inv-form">
-            <h2>Registro de producto</h2>
-            <button type="submit" class="send-form button">Crear</button>
-        </div>
 
-        <div class="columnas-crear">
+document.getElementById('formulario-producto').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Detenemos el impulso primitivo de recargar
 
-            <div class="columna">
-                <div class="form-group">
-                    <label for="usuario">Nombre del producto</label>
-                    <input 
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    placeholder="Nombre producto"
-                    
-                    >
-                </div>
-        
-                <div class="form-group">
-                    <label for="marca">Marca del producto</label>
-                    <input 
-                    type="text"
-                    id="marca"
-                    name="marca"
-                    placeholder="Marca del producto"
-                    
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="proveedor">Proveedor</label>
-                    <input 
-                    type="text"
-                    id="proveedor_id_proveedor"
-                    name="proveedor_id_proveedor"
-                    placeholder="Proveeedor"
-                    
-                    >
-                </div>
-            </div>
-            <div class="columna">
-                <div class="form-group">
-                    <label for="precio">Precio del Producto</label>
-                    <input 
-                    type="number"
-                    id="precio"
-                    name="precio"
-                    placeholder="precio producto"
-                    
-                    >
-                </div>
-        
-                <div class="form-group">
-                    <label for="tipo">Categoria Producto</label>
-                    <input 
-                    type="text"
-                    id="categoria_id_categoria"
-                    name="categoria_id_categoria"
-                    placeholder="Categoria Producto"
-                    
-                    >
-                </div>
-        
-                <div class="form-group">
-                    <label for="stock">Iva</label>
-                    <input 
-                    type="number"
-                    id="iva"
-                    name="iva"
-                    placeholder="Impuesto Iva"
-                    
-                    >
-                </div>
-            </div>
+    // Limpiamos errores previos (si los hay)
+    document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
 
-        </div>
+    // Obtener valores
+    const nombre = document.getElementById('nombre').value.trim();
+    const marca = document.getElementById('marca').value.trim();
+    const iva = document.getElementById('iva').value.trim();
+    const precio = document.getElementById('precio').value.trim();
+    const proveedor = document.getElementById('proveedor_id_proveedor').value;
+    const categoria = document.getElementById('categoria_id_categoria').value;
+    const observaciones = document.getElementById('observaciones').value.trim();
 
-        <div class="form-group form-out">
-            <label class="crear-observacion" for="observaciones">Observaciones</label>
-            <input 
-            type="text"
-            id="observaciones"
-            name="observaciones"
-            >
-        </div>
-    </form>
-        `;
+    let errores = [];
 
-        document.body.appendChild(modal);
+    const marcarError = (id) => document.getElementById(id).classList.add('input-error');
 
-        document.getElementById('cerrar').addEventListener('click', () => {
-            modal.remove();
+    // Validaciones
+    if (nombre === "") { errores.push("El nombre del producto es obligatorio."); marcarError('nombre'); }
+    if (marca === "") { errores.push("La marca del producto es obligatoria."); marcarError('marca'); }
+    if (iva === "" || isNaN(iva) || Number(iva) < 0) { errores.push("El IVA debe ser un número positivo."); marcarError('iva'); }
+    if (precio === "" || isNaN(precio) || Number(precio) <= 0) { errores.push("El precio debe ser un número mayor que cero."); marcarError('precio'); }
+    if (proveedor === "alguien") { errores.push("Selecciona un proveedor válido."); marcarError('proveedor_id_proveedor'); }
+    if (categoria === "non") { errores.push("Selecciona una categoría válida."); marcarError('categoria_id_categoria'); }
+
+    if (errores.length > 0) {
+        alert("Errores en el formulario:\n" + errores.join("\n"));
+        return;
+    }
+
+    // Construir el objeto con los datos
+    const datos = {
+        nombre,
+        marca,
+        iva: parseFloat(iva),
+        precio: parseFloat(precio),
+        proveedor_id_proveedor: proveedor,
+        categoria_id_categoria: categoria,
+        observaciones
+    };
+
+    try {
+        const respuesta = await fetch('guardarProducto.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(datos)
         });
 
-        document.getElementById('formulario-producto').addEventListener('submit', e => {
-            e.preventDefault();
+        if (!respuesta.ok) throw new Error("Error al enviar los datos");
 
-            modal.remove();
-        });
-    });
+        const resultado = await respuesta.json();
+
+        if (resultado.success) {
+            alert("Producto guardado exitosamente.");
+            this.reset(); // Limpia el formulario
+        } else {
+            alert("Error al guardar el producto: " + (resultado.message || "sin detalles"));
+        }
+    } catch (error) {
+        alert("Ocurrió un error técnico: " + error.message);
+    }
 });

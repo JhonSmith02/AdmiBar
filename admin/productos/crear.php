@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for=" ">Proveedor</label>
         <select name="proveedor_id_proveedor" id="">
             <option value="" disabled selected>Selecciona</option>
-            <option value="002">JhonSmith</option>
+            <option value="01">JhonSmith</option>
                 
         </select>
 
