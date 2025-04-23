@@ -519,6 +519,7 @@ input, select {
   display: flex;
   align-items: center;
   font-size: 1.75rem;
+  cursor: pointer;
 }
 
 span.user-name {
@@ -569,7 +570,7 @@ span.user-name {
   display: none;
 }
 
-#modal-add {
+#modal-add, #modal-edit, #modal-delete {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4117647059);
@@ -580,7 +581,7 @@ span.user-name {
 }
 
 .modal-content {
-  background-color: white;
+  background-color: #FFFFFF;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -662,13 +663,13 @@ span.user-name {
 
 .tabla-productos th,
 .tabla-productos td {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #000000;
   padding: 12px;
   text-align: center;
 }
 
 .tabla-productos thead {
-  background-color: #fff;
+  background-color: #FFFFFF;
   font-weight: bold;
 }
 
@@ -716,4 +717,38 @@ span.user-name {
 
 .input-error {
   background-color: #ffd1d1;
+}
+
+.logo-delet {
+  width: 20vw;
+}
+
+.button-delete button {
+  width: 60%;
+  height: 8vh;
+  font-size: 3rem;
+  background-color: #F53029;
+}
+
+.modal-content form {
+  width: 100%;
+}
+
+.button-delete {
+  display: flex;
+  justify-content: center;
+}
+
+#modal-delete .modal-content {
+  width: 40%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.delete-secure {
+  font-size: 3.5rem;
+  color: red;
 }

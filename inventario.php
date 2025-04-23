@@ -144,10 +144,10 @@ $producto = new Producto();
                                 <?php echo $row->proveedor_id_proveedor; ?>
                             </td>
                             <td>
-                                <button class="btn editar"><i class="icon-pencil"><img
+                                <button  class="btn editar editar-prod"><i class="icon-pencil"><img
                                             src="./src/images/4213598-doodle-education-line-pen-pencil-school-science_115491.ico"
                                             alt=""></i></button>
-                                <button class="btn eliminar"><i class="icon-delete"><img
+                                <button class="btn eliminar delete-prod"><i class="icon-delete"><img
                                             src="./src/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico"
                                             alt=""></i></button>
                             </td>
@@ -168,7 +168,7 @@ $producto = new Producto();
 
         </div>
 
-        <section class= "hidden" id ="modal-add">
+        <div class= "hidden" id ="modal-add">
 
             <div class="modal-content">
                 <form id="formulario-producto">
@@ -224,6 +224,80 @@ $producto = new Producto();
                 </form>
             </div>
 
+        </div>
+
+        <div class= "hidden" id ="modal-edit">
+
+            <div class="modal-content">
+                <form id="formulario-producto">
+                    <button type="button" id="close" class="send-form button">Cancelar</button>
+                    <div class="iventary-header inv-form">
+                        <h2>Registro de producto</h2>
+                        <button type="submit" class="send-form button">Crear</button>
+                    </div>
+                    <div class="columnas-crear">
+                        <div class="columna">
+                            <div class="form-group">
+                                <label for="usuario">Nombre del producto</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Nombre producto">
+                            </div>
+                            <div class="form-group">
+                                <label for="marca">Marca del producto</label>
+                                <input type="text" id="marca" name="marca" placeholder="Marca del producto">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="stock">Iva</label>
+                                <input type="number" id="iva" name="iva" placeholder="Impuesto Iva">
+                            </div>
+                            <div class="form-group">
+                                <label for="precio">Precio del Producto</label>
+                                <input type="number" id="precio" name="precio" placeholder="Precio producto">
+                            </div>
+                        </div>
+                        <div class="columna">
+                            <div class="form-group">
+                                <label for="proveedor">Proveedor</label>
+                                <select type="text" id="proveedor_id_proveedor" name="proveedor_id_proveedor">
+                                    <option value="alguien">Alguien</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tipo">Categoria Producto</label>
+                                <select type="text" id="categoria_id_categoria" name="categoria_id_categoria">
+                                <option value="non">Alguien</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fila">
+                        <div class="form-group form-out">
+                        <label class="crear-observacion" for="observaciones">Observaciones</label>
+                        <input type="text" id="observaciones" name="observaciones">
+                    </div>
+                    </div>
+                    
+                </form>
+            </div>
+
+        </div>
+
+        <div class="hidden" id = "modal-delete">
+            <div class="modal-content">
+                <div class="logo-delet">
+                    <img src="./src/images/navbar-log.png" alt="">
+                </div>
+                <div class="delete-secure">
+                        <h4>Seguro quieres eliminar el producto??</h4>
+                    </div>
+                <form >
+                    <div class="button-delete">
+                        <button class="button"type = "submit" id= "cerrar-delete"> Eliminar</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
         </section>
