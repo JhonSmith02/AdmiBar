@@ -61,7 +61,14 @@ class Producto
         $stmt->bindValue(':categoria_id_categoria', intval($this->categoria_id_categoria), PDO::PARAM_INT);
         $stmt->bindValue(':proveedor_id_proveedor', intval($this->proveedor_id_proveedor), PDO::PARAM_INT);
 
-        $stmt->execute();
+        $result = $stmt->execute();
+
+
+
+        if($result){
+            header('Location: ../?msg=1');
+            exit;
+        }
     }
 
     //Leer los productos
