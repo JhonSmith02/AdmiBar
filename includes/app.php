@@ -7,7 +7,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $database = new database();
 $db = $database->getConnection();
 
-use App\Producto;
+use Model\Producto;
 
 Producto::setDB($db);
 

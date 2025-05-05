@@ -2,7 +2,7 @@
     <div class="columna">
         <div class="form-group">
             <label for="usuario">Nombre del producto</label>
-            <input type="text" id="nombre" name="nombre" value="" placeholder="Nombre producto">
+            <input type="text" id="nombre" name="nombre" value="<?php echo $hola->nombre; ?>" placeholder="Nombre producto">
         </div>
         <div class="form-group">
             <label for="marca">Marca del producto</label>

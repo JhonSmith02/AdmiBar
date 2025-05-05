@@ -3,7 +3,7 @@
         'name' => 'cuatr/admibar',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '121af1c541d1439a65d8d4a83796dbd191e048ad',
+        'reference' => '29c82dffa8b78f1eea90521ee0ac5e90b120a153',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'cuatr/admibar' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '121af1c541d1439a65d8d4a83796dbd191e048ad',
+            'reference' => '29c82dffa8b78f1eea90521ee0ac5e90b120a153',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

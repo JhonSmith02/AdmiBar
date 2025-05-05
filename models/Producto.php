@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Model;
 
 use PDO;
 
@@ -81,6 +81,19 @@ class Producto
 
         return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
         // debuguear($result);
+    }
+
+    //Busca un producto por su id
+    public static function find($id){
+        $query = "SELECT * FROM producto WHERE id_producto = :id_producto";
+        $stmt = self::$db->prepare($query);
+        $stmt->bindValue(':id_producto', intval($id), PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
+
+        return array_shift( $result );
+        // debuguear( $stmt->fetch() );
+        
     }
 
     //validacion

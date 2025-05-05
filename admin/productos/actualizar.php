@@ -8,7 +8,6 @@ use Model\Producto;
 $db = new database();
 $dbc = $db->getConnection();
 
-
 //Validacion ara verificar el metodo de envio de datos
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -24,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // debuguear($producto::getErrors());
-
 
     // $producto::all();
 

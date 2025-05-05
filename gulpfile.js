@@ -7,7 +7,7 @@ const sass = gulpSass(dartSass);
 export function css ( done ){
     return src('src/scss/app.scss') //busca el archivo que debe compilar
         .pipe( sass() ) //Aplicamos sass a el archivo encontrado previamente
-        .pipe( dest('build/css') ); //Crea una carpeta llamada build y dentro de esta css y ahi se encuentra nuestro codigo compilado
+        .pipe( dest('public/build/css') ); //Crea una carpeta llamada build y dentro de esta css y ahi se encuentra nuestro codigo compilado
 
     done(); //Le indica a la funcion que su tarea a finalizado.
 }
