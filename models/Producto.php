@@ -43,6 +43,15 @@ class Producto
         }
     }
 
+    public function guardar(){
+        if(isset($this->id)){
+            $this->update();
+        } else {
+            $this->save();
+        }
+    }
+
+
     //Funcion de guardado con sentencias preparadas
     public function save()
     {
@@ -64,9 +73,31 @@ class Producto
         $result = $stmt->execute();
 
 
-
         if($result){
             header('Location: ../?msg=1');
+            exit;
+        }
+    }
+
+    public function update(){
+        
+        $query = "UPDATE producto SET nombre = :nombre, marca = :marca, precio = :precio, iva = :iva, descripcion = :descripcion, categoria_id_categoria = :categoria_id_categoria, proveedor_id_proveedor = :proveedor_id_proveedor";
+
+
+        $stmt = self::$db->prepare($query);
+        //Sanitizacion y asociacion de parametros
+        $stmt->bindValue(':nombre', strip_tags(trim($this->nombre)), PDO::PARAM_STR);
+        $stmt->bindValue(':marca', strip_tags(trim($this->marca)), PDO::PARAM_STR);
+        $stmt->bindValue(':precio', floatval($this->precio), PDO::PARAM_STR);
+        $stmt->bindValue(':iva', floatval($this->iva), PDO::PARAM_STR);
+        $stmt->bindValue(':descripcion', strip_tags(trim($this->descripcion)), PDO::PARAM_STR);
+        $stmt->bindValue(':categoria_id_categoria', intval($this->categoria_id_categoria), PDO::PARAM_INT);
+        $stmt->bindValue(':proveedor_id_proveedor', intval($this->proveedor_id_proveedor), PDO::PARAM_INT);
+
+        $result = $stmt->execute();
+
+        if($result){
+            header('Location: ../?msg=2');
             exit;
         }
     }
@@ -91,9 +122,18 @@ class Producto
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
 
-        return array_shift( $result );
-        // debuguear( $stmt->fetch() );
+        return array_shift( $result ); //Array_shift nos retorna el primer elemento de un arreglo.
         
+    }
+
+
+    //Sincroniza el objeto en memoria con los cambios realizados por el usuario
+    public function sincronizar($args = []){
+        foreach($args as $key => $value){
+            if(property_exists($this, $key) && !is_null($value)){
+                $this->$key = $value;
+            }
+        }
     }
 
     //validacion

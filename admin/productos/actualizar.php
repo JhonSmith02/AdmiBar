@@ -8,9 +8,11 @@ use Model\Producto;
 $db = new database();
 $dbc = $db->getConnection();
 
+$idProducto = $_GET['id_producto'];
+
+
 //Validacion ara verificar el metodo de envio de datos
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
 
     $producto = new Producto($_POST);
 

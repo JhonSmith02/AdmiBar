@@ -15,7 +15,18 @@ class ProductoController{
         ]);
     }
 
-    public static function create(){
-        echo "crear producto";
+    public static function create(Router $router){
+
+        $producto = new Producto();
+
+        $router->render('productos/crear', [
+            'producto' => $producto
+        ]);
     }
+
+    public static function update(){
+        echo "Actualizando Producto";
+    }
+
+
 }

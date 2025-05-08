@@ -10,5 +10,3 @@ $db = $database->getConnection();
 use Model\Producto;
 
 Producto::setDB($db);
-
-

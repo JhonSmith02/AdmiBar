@@ -1,5 +1,4 @@
 <?php
-
 namespace MVC;
 
 class Router
@@ -27,7 +26,6 @@ class Router
             echo "pagina no encontrada";
         }
     }
-
 
     //Muestra una vista
     public function render($view, $data = []){

@@ -5,13 +5,10 @@ require '../../includes/app.php';
 use Model\Producto;
 
 //Conexion a la base de datos
-$db = new database();
-$dbc = $db->getConnection();
-
+$db = $database->getConnection();
 
 //Validacion ara verificar el metodo de envio de datos
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
 
     $producto = new Producto($_POST);
 
@@ -24,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // debuguear($producto::getErrors());
-
 
     // $producto::all();
 
