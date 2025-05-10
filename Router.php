@@ -10,12 +10,18 @@ class Router
         $this->routesGET[$url] = $fn;
     }
 
+    public function post($url, $fn){
+        $this->routesPOST[$url] = $fn;
+    }
+
     public function comprobarRutas() {
         $currenUrl = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
 
         if($method === 'GET'){
             $fn = $this->routesGET[$currenUrl] ?? null;
+        } else {
+            $fn = $this->routesPOST[$currenUrl] ?? null;
         }
 
         if($fn){

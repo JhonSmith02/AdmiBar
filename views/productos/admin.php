@@ -1,7 +1,7 @@
 <div class="inventary-contain">
     <div class="iventary-header">
         <h2>INVENTARIO</h2>
-        <a href="productos/crear.php" id="openModal" class="button but-register">+ REGISTRAR </a>
+        <a href="/productos/create" id="openModal" class="button but-register">+ REGISTRAR </a>
     </div>
 
     <div class="search-inv">

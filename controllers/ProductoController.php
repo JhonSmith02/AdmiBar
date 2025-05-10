@@ -1,8 +1,11 @@
 <?php 
 
 namespace Controllers;
+
 use MVC\Router;
 use Model\Producto;
+use Model\Categoria;
+use Model\Proveedor;
 
 class ProductoController{
 
@@ -17,16 +20,34 @@ class ProductoController{
 
     public static function create(Router $router){
 
-        $producto = new Producto();
+        $producto = new Producto;
+        $categorias = Categoria::all();
+        $proveedores = Proveedor::all();
 
-        $router->render('productos/crear', [
-            'producto' => $producto
+        //array con mensaje de error
+        $errors = Producto::getErrors();
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $producto = new Producto($_POST);
+
+            $errors = $producto->validate();
+
+            if(empty($errors)){
+                $producto->save();
+            }
+
+        }
+
+        $router->render('productos/create', [
+            'producto' => $producto,
+            'categorias' => $categorias,
+            'proveedores' => $proveedores,
+            'errors' => $errors
         ]);
     }
 
     public static function update(){
         echo "Actualizando Producto";
     }
-
 
 }
