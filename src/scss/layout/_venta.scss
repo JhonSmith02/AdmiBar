@@ -33,6 +33,11 @@
     width: 22px;
 }
 
+.close-car, .trash-red {
+    width: 5rem;
+    cursor: pointer;
+}
+
 .producto-carr {
     font-family: Arial, sans-serif;
     padding: 1rem;
@@ -46,6 +51,7 @@
 .left-carr {
     display: flex;
     align-items: center;
+    gap: 0.3rem;
 }
 
 .right-carr {

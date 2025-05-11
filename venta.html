@@ -97,20 +97,20 @@
                     <h3>Carrito</h3>
 
                     <div class="close-car">
-                        X
+                        <img src="./public/images/close-red.png" alt="Close-red">
                     </div>
                 </div>
 
                 <div class="productos-carr">
                     <div class="producto-carr">
                         <div class="left-carr">
-                            <div>
-                                uhmm
+                            <div class="trash-red" >
+                                <img src="./public/images/trash.png" alt="trash">
                             </div>
                             <div>
                                 <div class="producto-nombre">Coca-Cola</div>
                                 <div class="producto-stock">3 Unidades Disponibles</div>
-                                <div class="producto-precio"> <img src="./public/images/edit-product.png" alt=""> <input type="text" >
+                                <div class="producto-precio">  <img src="./public/images/edit-product.png" alt=""> 6.000$
                                 </div>
                             </div>
                         </div>
@@ -127,13 +127,13 @@
                     </div>
                     <div class="producto-carr">
                         <div class="left-carr">
-                            <div>
-                                uhmm
+                            <div class="trash-red" >
+                                <img src="./public/images/trash.png" alt="trash">
                             </div>
                             <div>
-                                <div class="producto-nombre">Piolo</div>
-                                <div class="producto-stock">3 Unidades Disponibles</div>
-                                <div class="producto-precio"> <img src="./public/images/edit-product.png" alt=""> <input type="text" >
+                                <div class="producto-nombre">piolo</div>
+                                <div class="producto-stock">6 Unidades Disponibles</div>
+                                <div class="producto-precio">  <img src="./public/images/edit-product.png" alt=""> 12.000$
                                 </div>
                             </div>
                         </div>
@@ -232,7 +232,36 @@ document.addEventListener('DOMContentLoaded', function() {
             actualizarCantidad(btn);
         });
     });
+    // Función para eliminar producto
+    function eliminarProducto(elemento) {
+        const producto = elemento.closest('.producto-carr');
+        producto.style.animation = 'fadeOut 0.3s ease forwards';
+        
+        setTimeout(() => {
+            producto.remove();
+            actualizarTotalGeneral();
+        }, 300);
+    }
+
+    // Delegación de eventos para la papelera
+    document.querySelector('.productos-carr').addEventListener('click', function(e) {
+        const trash = e.target.closest('.trash-red');
+        if (trash) {
+            eliminarProducto(trash);
+        }
+    });
+
+    // Animación de eliminación
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(100%); }
+        }
+    `;
+    document.head.appendChild(style);
 });
+
 </script>
 
 </body>
