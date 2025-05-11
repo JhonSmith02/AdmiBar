@@ -1,0 +1,54 @@
+@use 'base/variables' as v;
+
+#cerrar {
+    margin: 3rem;
+    padding: 0.5rem 1rem;
+    background: rgb(245, 48, 41);
+    width: 7vw;
+}
+
+#formulario-producto {
+    padding: 1rem 0 0 1rem;
+    width: 60%;
+}
+
+.mensaje-contenedor {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.msg {
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease-out forwards;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.3rem;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.msg.error {
+    background-color: v.$rojo_palo;
+    border-left: 5px solid #fa4e4e;
+}
+
+.msg.exito {
+    background-color: v.$verde_palo;
+    border-left: 5px solid #41ee86;
+}
