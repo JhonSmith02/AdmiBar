@@ -184,13 +184,11 @@ span.user-name {
 }
 
 .columna input {
-    margin-left: 17px;
     border: none;
     height: 5rem;
 }
 .columna select{
     border: none;
-    margin-left: 17px;
 }
 #observaciones {
     height: 15rem;
@@ -221,6 +219,8 @@ span.user-name {
 
 .btn {
     border: none;
+    display: flex;
+    align-items: center;
     padding: 8px 12px;
     margin: 0 4px;
     cursor: pointer;
@@ -229,6 +229,10 @@ span.user-name {
     width: 8rem;
     height: 5rem;
     padding: 0 2rem;
+}
+
+.acciones-inv {
+    display: flex;
 }
 
 .btn.editar {

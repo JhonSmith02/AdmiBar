@@ -57,12 +57,15 @@
                         <?php echo $row->proveedor_id_proveedor; ?>
                     </td>
                     <td>
-                        <button class="btn editar editar-prod"><i class="icon-pencil"><img
-                        src="/images/4213598-doodle-education-line-pen-pencil-school-science_115491.ico"
-                                    alt=""></i></button>
-                        <button class="btn eliminar delete-prod"><i class="icon-delete"><img
-                                    src="/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico"
-                                    alt=""></i></button>
+                        <div class="acciones-inv">
+                            <a href="/productos/create" class="btn editar editar-prod"><i class="icon-pencil"><img
+                                src="/images/4213598-doodle-education-line-pen-pencil-school-science_115491.ico"
+                                alt=""></i>
+                            </a>
+                            <a href="/productos/create" class="btn eliminar delete-prod"><i class="icon-delete"><img
+                                src="/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico"
+                            alt=""></i></a>
+                        </div>
                     </td>
                 </tr>
             <?php endforeach; ?>

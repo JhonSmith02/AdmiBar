@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta</title>
+</head>
+
+<body>
+
+    <div class="con-inv">
+
+        <nav class="navbar">
+            <div class="nav-logo">
+                <link rel="stylesheet" href="./public/build/css/app.css">
+                <img src="./public/images/navbar-log.png" alt="nav_log">
+            </div>
+
+            <div class="nav-optioncontain">
+
+                <div class="nav-option">
+                    <ul>
+                        <li> <a href="">INFORME</a> </li>
+                        <li> <a href="">INVENTARIO</a> </li>
+                        <li> <a href="">INFORME</a> </li>
+                    </ul>
+                </div>
+
+                <div class="nav-salir">
+                    <span>SALIR</span>
+                </div>
+            </div>
+
+        </nav>
+
+        <div class="cuerpo-inventario">
+            <aside class="lateral-opt">
+                <div class="later-component">
+                    <div class="lateral-icon">
+                        <img src="./public/images/usuario.png" alt="User-icon">
+                    </div>
+                    <div class="laterl-information">
+                        <div class="lateral-rol">
+                            <span>ADMIN</span> <br>
+                            <span class="user-name">Freddy Krueger</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="later-component">
+                    <div class="lateral-icon">
+                        <img src="./public/images/lector-tarj.png" alt="Lector-icon">
+                    </div>
+                    <div class="laterl-information">
+                        <span>VENTA</span>
+                    </div>
+                </div>
+                <div class="later-component">
+                    <div class="lateral-icon">
+                        <img src="./public/images/usuario.png" alt="Lector-icon">
+                    </div>
+                    <div class="laterl-information">
+                        <span>Proveedor</span>
+                    </div>
+                </div>
+            </aside>
+
+
+            <div class="venta-contain">
+                <div class="search-inv">
+                    <div class="buscador">
+                        <span class="material-symbols-outlined">
+                            search
+                        </span>
+                        <input type="text" placeholder=" Buscar producto" class="serch-inventory">
+                    </div>
+
+                </div>
+
+                <table class="tabla-productos">
+                    <thead>
+                        <tr>
+                            <th># ID</th>
+                            <th>NOMBRE</th>
+                            <th>MARCA</th>
+                            <th>PRECIO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="carrito">
+                <div class="carrito-head">
+                    <h3>Carrito</h3>
+
+                    <div class="close-car">
+                        X
+                    </div>
+                </div>
+
+                <div class="productos-carr">
+                    <div class="producto-carr">
+                        <div class="left-carr">
+                            <div>
+                                uhmm
+                            </div>
+                            <div>
+                                <div class="producto-nombre">Coca-Cola</div>
+                                <div class="producto-stock">3 Unidades Disponibles</div>
+                                <div class="producto-precio"> <img src="./public/images/edit-product.png" alt=""> <input type="text" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right-carr">
+                            <div class="producto-cantidad">
+                                <button class="cantidad-btn">-</button>
+                                <input type="number" class="cantidad-input" value="2" min="1" max="10">
+                                <button class="cantidad-btn">+</button>
+                            </div>
+
+                            <div class="producto-subtotal">12.000$</div>
+                        </div>
+                    </div>
+                    <div class="producto-carr">
+                        <div class="left-carr">
+                            <div>
+                                uhmm
+                            </div>
+                            <div>
+                                <div class="producto-nombre">Piolo</div>
+                                <div class="producto-stock">3 Unidades Disponibles</div>
+                                <div class="producto-precio"> <img src="./public/images/edit-product.png" alt=""> <input type="text" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right-carr">
+                            <div class="producto-cantidad">
+                                <button class="cantidad-btn">-</button>
+                                <input type="number" class="cantidad-input" value="2" min="1" max="10">
+                                <button class="cantidad-btn">+</button>
+                            </div>
+
+                            <div class="producto-subtotal">12.000$</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resumen-compra">
+                    <div class="resumen-total">
+                        <span class="total-texto">TOTAL</span>
+                        <span class="total-monto">17.000$</span>
+                    </div>
+
+                    <button class="btn-confirmar">Confirmar productos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Función principal de actualización
+    function actualizarCantidad(btn) {
+        const container = btn.closest('.producto-carr');
+        const input = container.querySelector('.cantidad-input');
+        const precioElement = container.querySelector('.producto-precio');
+        const subtotalElement = container.querySelector('.producto-subtotal');
+        
+        // Extraer valores numéricos
+        let cantidad = parseInt(input.value);
+        const precio = parseFloat(
+            precioElement.textContent
+                .replace(/[^\d,]/g, '')
+                .replace(',', '.')
+        ) || 0;
+        const maxStock = parseInt(input.getAttribute('max')) || 10;
+
+        // Determinar acción
+        if (btn.textContent === '+' && cantidad < maxStock) {
+            cantidad++;
+        } else if (btn.textContent === '-' && cantidad > 1) {
+            cantidad--;
+        }
+
+        // Actualizar valores
+        input.value = cantidad;
+        const subtotal = precio * cantidad;
+        subtotalElement.textContent = new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+            minimumFractionDigits: 0
+        }).format(subtotal);
+
+        actualizarTotalGeneral();
+    }
+
+    // Actualizar total general
+    function actualizarTotalGeneral() {
+        let total = 0;
+        document.querySelectorAll('.producto-subtotal').forEach(element => {
+            total += parseFloat(
+                element.textContent
+                    .replace(/[^\d,]/g, '')
+                    .replace(',', '.')
+            ) || 0;
+        });
+        
+        document.querySelector('.total-monto').textContent = 
+            new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                minimumFractionDigits: 0
+            }).format(total);
+    }
+
+    // Eventos para botones +/- 
+    document.querySelectorAll('.cantidad-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            actualizarCantidad(this);
+        });
+    });
+
+    // Evento para cambios manuales en el input
+    document.querySelectorAll('.cantidad-input').forEach(input => {
+        input.addEventListener('input', function() {
+            const btn = this.closest('.right-carr').querySelector('.cantidad-btn');
+            actualizarCantidad(btn);
+        });
+    });
+});
+</script>
+
+</body>
+
+</html>

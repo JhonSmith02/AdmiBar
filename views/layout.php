@@ -42,32 +42,49 @@
             <div class="lateral-opt">
                 <div class="later-component">
                     <div class="lateral-icon">
-                        <img src="/images/usuario.png" alt="User-icon">
+                        <a href="">
+                            <img src="/images/usuario.png" alt="User-icon">
+                        </a>
                     </div>
-                    <div class="laterl-information">
-                        <div class="lateral-rol">
-                            <span>ADMIN</span> <br>
-                            <span class="user-name">Freddy Krueger</span>
+                    <a href="">
+                        <div class="laterl-information">
+                            <div class="lateral-rol">
+                                <span>ADMIN</span> <br>
+                                <span class="user-name">Freddy Krueger</span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                    
                 </div>
 
                 <aside class="later-component">
-                    <div class="lateral-icon">
-                        <img src="/images/lector-tarj.png" alt="Lector-icon">
-                    </div>
-                    <div class="laterl-information">
-                        <span>VENTA</span>
-                    </div>
+                    <a href="">
+                        <div class="lateral-icon">
+                            <img src="/images/lector-tarj.png" alt="Lector-icon">
+                        </div>
+                    </a>
+                    <a href="../venta.html">
+                        <div class="laterl-information">
+                            <span>VENTA</span>
+                        </div>
+                    </a>
+                    
+                    
                 </aside>
 
                 <div class="later-component">
-                    <div class="lateral-icon">
-                        <img src="/images/usuario.png" alt="Lector-icon">
-                    </div>
-                    <div class="laterl-information">
-                        <span>Proveedor</span>
-                    </div>
+                    <a href="">
+                        <div class="lateral-icon">
+                            <img src="/images/usuario.png" alt="Lector-icon">
+                        </div>
+                    </a>
+                    
+                    <a href="">
+                        <div class="laterl-information">
+                            <span>Proveedor</span>
+                        </div>
+                    </a>
+                    
                 </div>
             </div>
 
