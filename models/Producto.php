@@ -68,7 +68,6 @@ class Producto {
 
         $result = $stmt->execute();
 
-
         if($result){
             header('Location: /productos/create?msg=1');
             exit;
@@ -94,7 +93,7 @@ class Producto {
         $result = $stmt->execute();
 
         if($result){
-            header('Location: ../?msg=2');
+            header('Location: /admin?msg=2');
             exit;
         }
     }
@@ -110,19 +109,41 @@ class Producto {
         $result = $stmt->execute();
 
         if($result){
-            header('Location: ../?msg=3');
+            header('Location: /admin?msg=3');
             exit;
         }
     }
 
     //Leer los productos
 
-    public static function all()
+    // public static function all()
+    // {
+    //     $query = "SELECT * FROM producto";
+    //     $stmt = self::$db->prepare($query);
+    //     $stmt->execute();
+
+    //     return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
+    // }
+
+        public static function all()
     {
-        $query = "SELECT * FROM producto";
+        $query = "SELECT
+        p.id_producto,
+        p.nombre,
+        p.marca,
+        p.precio,
+        p.iva,
+        p.descripcion,
+        c.nombre as nombre_categoria,
+        pr.nombre as proveedor_nombre,
+        pr.apellido as proveedor_apellido
+        FROM producto p
+        INNER JOIN categoria c ON p.categoria_id_categoria = c.id_categoria
+        INNER JOIN proveedor pr ON p.proveedor_id_proveedor = pr.id_proveedor";
         $stmt = self::$db->prepare($query);
         $stmt->execute();
 
+        // return $stmt->fetchAll(PDO::FETCH_OBJ);
         return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 

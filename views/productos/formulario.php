@@ -26,7 +26,7 @@
                 <option value="" disabled selected>Selecciona Proveedor</option>
                 <?php foreach ($proveedores as $row): ?>
 
-                    <option value="<?php echo $row->id_proveedor; ?>"> <?php echo $row->nombre;?> <?php echo $row->apellido; ?> </option>
+                    <option <?php echo $producto->proveedor_id_proveedor == $row->id_proveedor ? 'selected' : ''; ?> value="<?php echo $row->id_proveedor; ?>"> <?php echo $row->nombre;?> <?php echo $row->apellido; ?> </option>
 
                 <?php endforeach; ?>
             </select>
@@ -38,7 +38,7 @@
                 <option value="" disabled selected>Selecciona Categoria</option>
                 <?php foreach ($categorias as $row) : ?>
 
-                    <option value="<?php echo $row->id_categoria; ?>"> <?php echo $row->nombre; ?></option>
+                    <option <?php echo $producto->categoria_id_categoria == $row->id_categoria ? 'selected' : ''; ?> value="<?php echo $row->id_categoria; ?>"> <?php echo $row->nombre; ?></option>
 
                 <?php endforeach; ?>
             </select>

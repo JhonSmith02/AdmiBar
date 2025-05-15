@@ -1,4 +1,14 @@
 <div class="inventary-contain">
+      <?php $msg = $_GET['msg'] ?? null; ?>
+    <?php if (intval($msg) === 2): ?>
+        <div class="msg exito">
+            <span class="mensaje-texto">Producto Actualizado</span>
+        </div>
+        <?php elseif (intval($msg) === 3): ?>
+        <div class="msg error">
+            <span class="mensaje-texto">Producto Eliminado</span>
+        </div>
+    <?php endif; ?>
     <div class="iventary-header">
         <h2>INVENTARIO</h2>
         <a href="/productos/create" id="openModal" class="button but-register">+ REGISTRAR </a>
@@ -51,20 +61,27 @@
                         <?php echo $row->descripcion; ?>
                     </td>
                     <td>
-                        <?php echo $row->categoria_id_categoria; ?>
+                        <?php echo $row->nombre_categoria; ?>
                     </td>
                     <td>
-                        <?php echo $row->proveedor_id_proveedor; ?>
+                        <?php echo $row->proveedor_nombre . ' ' . $row->proveedor_apellido; ?>
                     </td>
                     <td>
                         <div class="acciones-inv">
-                            <a href="/productos/create" class="btn editar editar-prod"><i class="icon-pencil"><img
+                            <a href="/productos/update?id=<?php echo $row->id_producto; ?>" class="btn editar editar-prod"><i class="icon-pencil"><img
                                 src="/images/4213598-doodle-education-line-pen-pencil-school-science_115491.ico"
                                 alt=""></i>
                             </a>
-                            <a href="/productos/create" class="btn eliminar delete-prod"><i class="icon-delete"><img
+
+                            <form action="/productos/delete" method="POST">
+                                <input type="hidden" name="id_producto" value="<?php echo $row->id_producto; ?>">
+                                <button type="submit" class="btn eliminar delete-prod" value="Delete">
+                                    <i class="icon-delete"><img src="/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico" alt=""></i>
+                                </button>
+                            </form>
+                            <!-- <a href="/productos/delete ?>" class="btn eliminar delete-prod"><i class="icon-delete"><img
                                 src="/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico"
-                            alt=""></i></a>
+                            alt=""></i></a> -->
                         </div>
                     </td>
                 </tr>
@@ -81,53 +98,6 @@
     </div>
 
 </div>
-
-</div>
-
-<div class="hidden" id="modal-add">
-
-    <div class="modal-content">
-       
-    </div>
-
-</div>
-
-
-<div class="hidden" id="modal-edit">
-
-    <div class="modal-content">
-        <form id="formulario-producto" action="inventario.php" method="POST">
-            <button type="button" id="close" class="send-form button">Cancelar</button>
-            <div class="iventary-header inv-form">
-                <h2>Actualizar producto</h2>
-                <button type="submit" class="send-form button">Actualizar</button>
-            </div>
-            <?php include '../includes/templates/formularioProducto.php'; ?>
-
-        </form>
-    </div>
-
-</div>
-
-<div class="hidden" id="modal-delete">
-    <div class="modal-content">
-        <div class="logo-delet">
-            <img src="../src/images/navbar-log.png" alt="">
-        </div>
-        <div class="delete-secure">
-            <h4>Seguro quieres eliminar el producto??</h4>
-        </div>
-        <form>
-            <div class="button-delete">
-                <button class="button" type="submit" id="cerrar-delete"> Eliminar</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-</div>
-
-</body>
 
 <script>
     const filasPorPagina = 10;
