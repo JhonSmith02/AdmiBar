@@ -1,6 +1,6 @@
 
 <form id="formulario-producto" action="/productos/create" method="POST">
-    <a href="/admin" id="cerrar" class="send-form button">Cerrar</a>
+    <a href="/productos/admin" id="cerrar" class="send-form button">Cerrar</a>
     <div class="iventary-header inv-form">
         <h2>Registro de producto</h2>
         <button type="submit" class="send-form button">Crear</button>

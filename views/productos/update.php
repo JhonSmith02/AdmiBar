@@ -1,7 +1,7 @@
 
 <form id="formulario-producto" action="/productos/update?id=<?php echo $producto->id_producto; ?>" method="POST">
     <input type="hidden" name="id_producto" value="<?php echo $producto->id_producto; ?>">
-    <a href="/admin" id="cerrar" class="send-form button">Cerrar</a>
+    <a href="/productos/admin" id="cerrar" class="send-form button">Cerrar</a>
     <div class="iventary-header inv-form">
         <h2>Antualizacion de Producto</h2>
         <button type="submit" class="send-form button">Actualizar</button>
