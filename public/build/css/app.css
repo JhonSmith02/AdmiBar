@@ -525,6 +525,7 @@ input, select {
   align-items: center;
   font-size: 1.75rem;
   cursor: pointer;
+  gap: 1rem;
 }
 
 span.user-name {
@@ -695,11 +696,11 @@ span.user-name {
 }
 
 .btn.editar {
-  background-color: #2ce132;
+  background-color: #AAFF69;
 }
 
 .btn.eliminar {
-  background-color: rgb(245, 48, 41);
+  background-color: #EB2857;
 }
 
 .paginacion {

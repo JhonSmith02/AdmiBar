@@ -27,7 +27,7 @@
     <table class="tabla-productos">
         <thead>
             <tr>
-                <th># ID</th>
+                <th>#ID</th>
                 <th>NOMBRE</th>
                 <th>APELLIDO</th>
                 <th>TELEFONO</th>
@@ -60,20 +60,17 @@
                     </td>
                     <td>
                         <div class="acciones-inv">
-                            <a href="/productos/update?id=<?php echo $row->id_producto; ?>" class="btn editar editar-prod"><i class="icon-pencil"><img
+                            <a href="/proveedores/update?id=<?php echo $row->id_proveedor; ?>" class="btn editar editar-prod"><i class="icon-pencil"><img
                                 src="/images/4213598-doodle-education-line-pen-pencil-school-science_115491.ico"
                                 alt=""></i>
                             </a>
 
-                            <form action="/productos/delete" method="POST">
-                                <input type="hidden" name="id_producto" value="<?php echo $row->id_producto; ?>">
+                            <form action="/proveedor/delete" method="POST">
+                                <input type="hidden" name="id_proveedor" value="<?php echo $row->id_proveedor; ?>">
                                 <button type="submit" class="btn eliminar delete-prod" value="Delete">
                                     <i class="icon-delete"><img src="/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico" alt=""></i>
                                 </button>
                             </form>
-                            <!-- <a href="/productos/delete ?>" class="btn eliminar delete-prod"><i class="icon-delete"><img
-                                src="/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico"
-                            alt=""></i></a> -->
                         </div>
                     </td>
                 </tr>

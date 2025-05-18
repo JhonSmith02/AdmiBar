@@ -63,6 +63,7 @@
     align-items: center;
     font-size: 1.75rem;
     cursor: pointer;
+    gap: 1rem;
 }
 
 span.user-name {
@@ -236,11 +237,11 @@ span.user-name {
 }
 
 .btn.editar {
-    background-color: v.$verde_claro;
+    background-color: v.$verde_medio;
 }
 
 .btn.eliminar {
-    background-color: v.$rojo_claro;
+    background-color: v.$rojo_delete;
 }
 
 

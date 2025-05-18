@@ -45,7 +45,7 @@
                     </div>
                     <div class="laterl-information">
                         <!-- <a href="/productos/admin">Productos</a> -->
-                        <span>ADMINISTRADOR</span>
+                        <span>ADMIN</span>
                     </div>
                 </a>
 
@@ -80,7 +80,7 @@
                     </div>
                 </a>
 
-                <a href="/proveedor/admin" class="later-component">
+                <a href="/proveedores/admin" class="later-component">
 
                     <div class="lateral-icon">
                         <img src="/images/delivery-man.png" alt="Lector-icon">

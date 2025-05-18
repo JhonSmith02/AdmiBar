@@ -69,7 +69,7 @@
                     <td>
                         <div class="acciones-inv">
                             <a href="/productos/update?id=<?php echo $row->id_producto; ?>" class="btn editar editar-prod"><i class="icon-pencil"><img
-                                src="/images/4213598-doodle-education-line-pen-pencil-school-science_115491.ico"
+                                src="/images/edit.png"
                                 alt=""></i>
                             </a>
 
