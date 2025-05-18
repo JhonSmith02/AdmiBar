@@ -93,7 +93,7 @@ class Producto {
         $result = $stmt->execute();
 
         if($result){
-            header('Location: /admin?msg=2');
+            header('Location: /productos/admin?msg=2');
             exit;
         }
     }
@@ -109,7 +109,7 @@ class Producto {
         $result = $stmt->execute();
 
         if($result){
-            header('Location: /admin?msg=3');
+            header('Location: /productos/admin?msg=3');
             exit;
         }
     }

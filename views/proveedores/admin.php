@@ -61,11 +61,11 @@
                     <td>
                         <div class="acciones-inv">
                             <a href="/proveedores/update?id=<?php echo $row->id_proveedor; ?>" class="btn editar editar-prod"><i class="icon-pencil"><img
-                                src="/images/4213598-doodle-education-line-pen-pencil-school-science_115491.ico"
+                                src="/images/edit.png"
                                 alt=""></i>
                             </a>
 
-                            <form action="/proveedor/delete" method="POST">
+                            <form action="/proveedores/delete" method="POST">
                                 <input type="hidden" name="id_proveedor" value="<?php echo $row->id_proveedor; ?>">
                                 <button type="submit" class="btn eliminar delete-prod" value="Delete">
                                     <i class="icon-delete"><img src="/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico" alt=""></i>

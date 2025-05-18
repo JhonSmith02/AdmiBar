@@ -25,7 +25,7 @@ $router->get('/proveedores/create', [ProveedorController::class, 'create']);
 $router->post('/proveedores/create', [ProveedorController::class, 'create']);
 $router->get('/proveedores/update', [ProveedorController::class, 'update']);
 $router->post('/proveedores/update', [ProveedorController::class, 'update']);
-$router->post('/proveedor/delete', [ProveedorController::class, 'delete']);
+$router->post('/proveedores/delete', [ProveedorController::class, 'delete']);
 
 
 $router->get('/categorias/admin', [CategoriaController::class, 'index']);

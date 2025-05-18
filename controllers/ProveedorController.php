@@ -2,7 +2,6 @@
 
 namespace controllers;
 
-use Model\Producto;
 use Model\Proveedor;
 use MVC\router;
 

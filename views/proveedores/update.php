@@ -4,7 +4,7 @@
     <a href="/proveedores/admin" id="cerrar" class="send-form button">Cerrar</a>
     <div class="iventary-header inv-form">
         <h2>Registro de Proveedores</h2>
-        <button type="submit" class="send-form button">Crear</button>
+        <button type="submit" class="send-form button">Actualizar</button>
     </div>
     <?php include __DIR__ . '/formulario.php'; ?>
 </form>
