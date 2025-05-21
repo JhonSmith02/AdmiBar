@@ -7,8 +7,6 @@ use MVC\router;
 
 class CategoriaController{
 
-
-
     public static function index(Router $router){
         $categorias = Categoria::all();
 

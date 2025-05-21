@@ -125,7 +125,7 @@ class Producto {
     //     return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
     // }
 
-        public static function all()
+    public static function all()
     {
         $query = "SELECT
         p.id_producto,

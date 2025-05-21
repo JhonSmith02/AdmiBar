@@ -18,6 +18,7 @@ class Router
         $currenUrl = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
 
+
         if($method === 'GET'){
             $fn = $this->routesGET[$currenUrl] ?? null;
         } else {

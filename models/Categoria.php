@@ -29,7 +29,9 @@ class Categoria{
     }
 
     public function save(){
+        $query = "SELECT * FROM categoria";
 
+        $stmt = self::$db->prepare($query);
 
     }
 
