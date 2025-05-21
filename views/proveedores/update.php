@@ -1,9 +1,10 @@
 
-<form id="formulario-producto" action="/productos/create" method="POST">
-    <a href="/productos/admin" id="cerrar" class="send-form button">Cerrar</a>
+<form id="formulario-producto" action="/proveedores/update?id=<?php echo $proveedor->id_proveedor; ?>" method="POST">
+        <input type="hidden" name="id_producto" value="<?php echo $proveedor->id_proveedor; ?>">
+    <a href="/proveedores/admin" id="cerrar" class="send-form button">Cerrar</a>
     <div class="iventary-header inv-form">
-        <h2>Registro de producto</h2>
-        <button type="submit" class="send-form button">Crear</button>
+        <h2>Registro de Proveedores</h2>
+        <button type="submit" class="send-form button">Actualizar</button>
     </div>
     <?php include __DIR__ . '/formulario.php'; ?>
 </form>

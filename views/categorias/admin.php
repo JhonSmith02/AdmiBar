@@ -10,7 +10,7 @@
         </div>
     <?php endif; ?>
     <div class="iventary-header">
-        <h2>PRODUCTOS</h2>
+        <h2>CATEGORIAS</h2>
         <a href="/productos/create" id="openModal" class="button but-register">+ REGISTRAR </a>
     </div>
 
@@ -19,7 +19,7 @@
             <span class="material-symbols-outlined">
                 search
             </span>
-            <input type="text" placeholder=" Buscar producto" class="serch-inventory">
+            <input type="text" placeholder=" Buscar Categoria" class="serch-inventory">
         </div>
 
     </div>
@@ -27,48 +27,28 @@
     <table class="tabla-productos">
         <thead>
             <tr>
-                <th># ID</th>
+                <th>#ID</th>
                 <th>NOMBRE</th>
-                <th>MARCA</th>
-                <th>PRECIO</th>
-                <th>IVA</th>
                 <th>DESCRIPCION</th>
-                <th>CATEGORIA</th>
-                <th>PROVEEDOR</th>
                 <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
 
-            <?php foreach ($productos as $row): ?>
+            <?php foreach ($categorias as $row): ?>
                 <tr>
                     <td>
-                        <?php echo $row->id_producto; ?>
+                        <?php echo $row->id_categoria; ?>
                     </td>
                     <td>
                         <?php echo $row->nombre; ?>
                     </td>
                     <td>
-                        <?php echo $row->marca; ?>
-                    </td>
-                    <td>
-                        <?php echo $row->precio; ?>
-                    </td>
-                    <td>
-                        <?php echo $row->iva; ?>
-                    </td>
-                    <td>
                         <?php echo $row->descripcion; ?>
                     </td>
                     <td>
-                        <?php echo $row->nombre_categoria; ?>
-                    </td>
-                    <td>
-                        <?php echo $row->proveedor_nombre . ' ' . $row->proveedor_apellido; ?>
-                    </td>
-                    <td>
                         <div class="acciones-inv">
-                            <a href="/productos/update?id=<?php echo $row->id_producto; ?>" class="btn editar editar-prod"><i class="icon-pencil"><img
+                            <a href="/productos/update?id=<?php echo $row->id_categoria; ?>" class="btn editar editar-prod"><i class="icon-pencil"><img
                                 src="/images/edit.png"
                                 alt=""></i>
                             </a>

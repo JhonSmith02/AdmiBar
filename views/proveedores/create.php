@@ -1,8 +1,8 @@
 
-<form id="formulario-producto" action="/productos/create" method="POST">
-    <a href="/productos/admin" id="cerrar" class="send-form button">Cerrar</a>
+<form id="formulario-producto" action="/proveedores/create" method="POST">
+    <a href="/proveedores/admin" id="cerrar" class="send-form button">Cerrar</a>
     <div class="iventary-header inv-form">
-        <h2>Registro de producto</h2>
+        <h2>Registro de Proveedores</h2>
         <button type="submit" class="send-form button">Crear</button>
     </div>
     <?php include __DIR__ . '/formulario.php'; ?>
@@ -22,11 +22,7 @@
     <?php $msg = $_GET['msg'] ?? null; ?>
     <?php if (intval($msg) === 1): ?> 
         <div class="msg exito">
-            <span class="mensaje-texto">Producto Creado Correctamente</span>
-        </div>
-    <?php elseif (intval($msg) === 2): ?>
-        <div class="msg exito">
-            <span class="mensaje-texto">Producto Actualizado</span>
+            <span class="mensaje-texto">Proveedor Creado Correctamente</span>
         </div>
     <?php endif; ?>
 </div>

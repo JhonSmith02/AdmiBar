@@ -5,7 +5,7 @@ class database{
     private $host = 'localhost';
     private $dbname = 'admibar';
     private $user = 'root';
-    private $pass = 'Queleimporta22';
+    private $pass = 'root';
 
     public $connection;
 

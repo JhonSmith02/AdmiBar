@@ -2,7 +2,7 @@
       <?php $msg = $_GET['msg'] ?? null; ?>
     <?php if (intval($msg) === 2): ?>
         <div class="msg exito">
-            <span class="mensaje-texto">Producto Actualizado</span>
+            <span class="mensaje-texto">Proveedor Actualizado</span>
         </div>
         <?php elseif (intval($msg) === 3): ?>
         <div class="msg error">
@@ -10,8 +10,8 @@
         </div>
     <?php endif; ?>
     <div class="iventary-header">
-        <h2>PRODUCTOS</h2>
-        <a href="/productos/create" id="openModal" class="button but-register">+ REGISTRAR </a>
+        <h2>PROVEEDORES</h2>
+        <a href="/proveedores/create" id="openModal" class="button but-register">+ REGISTRAR </a>
     </div>
 
     <div class="search-inv">
@@ -19,7 +19,7 @@
             <span class="material-symbols-outlined">
                 search
             </span>
-            <input type="text" placeholder=" Buscar producto" class="serch-inventory">
+            <input type="text" placeholder=" Buscar Proveedor" class="serch-inventory">
         </div>
 
     </div>
@@ -27,61 +27,50 @@
     <table class="tabla-productos">
         <thead>
             <tr>
-                <th># ID</th>
+                <th>#ID</th>
                 <th>NOMBRE</th>
-                <th>MARCA</th>
-                <th>PRECIO</th>
-                <th>IVA</th>
+                <th>APELLIDO</th>
+                <th>TELEFONO</th>
+                <th>CORREO</th>
                 <th>DESCRIPCION</th>
-                <th>CATEGORIA</th>
-                <th>PROVEEDOR</th>
                 <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
 
-            <?php foreach ($productos as $row): ?>
+            <?php foreach ($proveedores as $row): ?>
                 <tr>
                     <td>
-                        <?php echo $row->id_producto; ?>
+                        <?php echo $row->id_proveedor; ?>
                     </td>
                     <td>
                         <?php echo $row->nombre; ?>
                     </td>
                     <td>
-                        <?php echo $row->marca; ?>
+                        <?php echo $row->apellido; ?>
                     </td>
                     <td>
-                        <?php echo $row->precio; ?>
+                        <?php echo $row->telefono; ?>
                     </td>
                     <td>
-                        <?php echo $row->iva; ?>
+                        <?php echo $row->correo; ?>
                     </td>
                     <td>
                         <?php echo $row->descripcion; ?>
                     </td>
                     <td>
-                        <?php echo $row->nombre_categoria; ?>
-                    </td>
-                    <td>
-                        <?php echo $row->proveedor_nombre . ' ' . $row->proveedor_apellido; ?>
-                    </td>
-                    <td>
                         <div class="acciones-inv">
-                            <a href="/productos/update?id=<?php echo $row->id_producto; ?>" class="btn editar editar-prod"><i class="icon-pencil"><img
+                            <a href="/proveedores/update?id=<?php echo $row->id_proveedor; ?>" class="btn editar editar-prod"><i class="icon-pencil"><img
                                 src="/images/edit.png"
                                 alt=""></i>
                             </a>
 
-                            <form action="/productos/delete" method="POST">
-                                <input type="hidden" name="id_producto" value="<?php echo $row->id_producto; ?>">
+                            <form action="/proveedores/delete" method="POST">
+                                <input type="hidden" name="id_proveedor" value="<?php echo $row->id_proveedor; ?>">
                                 <button type="submit" class="btn eliminar delete-prod" value="Delete">
                                     <i class="icon-delete"><img src="/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico" alt=""></i>
                                 </button>
                             </form>
-                            <!-- <a href="/productos/delete ?>" class="btn eliminar delete-prod"><i class="icon-delete"><img
-                                src="/images/cancel_close_delete_exit_logout_remove_x_icon_123217.ico"
-                            alt=""></i></a> -->
                         </div>
                     </td>
                 </tr>
