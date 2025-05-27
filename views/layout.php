@@ -31,15 +31,20 @@
                     </ul> -->
                 </div>
 
-                <div class="nav-salir">
+                <div class="nav-salir button">
                     <span>SALIR</span>
                 </div>
             </div>
 
         </nav>
 
+        <div id="menu-overlay" class="overlay"></div>
+
         <div class="cuerpo-inventario">
 
+            <button id="toggle-menu" class="hamburger-btn">
+                ☰
+            </button>
             <div class="lateral-opt">
                <a href="/productos/admin" class="later-component">
                     <div class="lateral-icon">
@@ -109,3 +114,25 @@
             echo $contenido;
 
             ?>
+
+            <script>
+    document.getElementById('toggle-menu').addEventListener('click', function () {
+        document.querySelector('.lateral-opt').classList.toggle('active');
+    });
+</script>
+
+<script>
+    const toggleBtn = document.getElementById('toggle-menu');
+    const menu = document.querySelector('.lateral-opt');
+    const overlay = document.getElementById('menu-overlay');
+
+    toggleBtn.addEventListener('click', () => {
+        menu.classList.add('active');
+        overlay.classList.add('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+</script>

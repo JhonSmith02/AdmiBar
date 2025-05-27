@@ -37,6 +37,7 @@
         transform: translateY(50%);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -51,4 +52,22 @@
 .msg.exito {
     background-color: v.$verde_palo;
     border-left: 5px solid #41ee86;
+}
+
+@media screen and (max-width: 1000px) {
+    #formulario-producto {
+        width: 100%;
+    }
+
+    button.send-form.button {
+        width: 15rem;
+    }
+
+    a#cerrar {
+        width: 10rem;
+    }
+
+    .columna {
+    width: 45%;
+}
 }

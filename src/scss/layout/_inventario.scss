@@ -3,7 +3,6 @@
 .con-inv {
     display: flex;
     flex-direction: column;
-    height: 100vh;
 }
 
 .navbar {
@@ -34,6 +33,12 @@
 .nav-salir {
     font-size: 1.8rem;
     font-weight: 200;
+}
+
+.nav-salir {
+    width: 7vw;
+    background-color: red;
+    color: white;
 }
 
 .nav-salir span {
@@ -72,13 +77,17 @@ span.user-name {
 
 .inventary-contain {
     width: 80%;
-    padding: 2rem 8vw;
+    padding: 2rem 3vw;
 }
 
 .iventary-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+a#openModal {
+    width: fit-content;
 }
 
 .serch-inventory {
@@ -112,11 +121,14 @@ span.user-name {
     align-items: center;
     z-index: 9999;
 }
+
 .hidden {
     display: none;
 }
 
-#modal-add, #modal-edit, #modal-delete {
+#modal-add,
+#modal-edit,
+#modal-delete {
     width: 100vw;
     height: 100vh;
     background-color: v.$nigga_transparente;
@@ -188,9 +200,11 @@ span.user-name {
     border: none;
     height: 5rem;
 }
-.columna select{
+
+.columna select {
     border: none;
 }
+
 #observaciones {
     height: 15rem;
 }
@@ -204,6 +218,9 @@ span.user-name {
     font-family: Arial, sans-serif;
     font-size: 1.5rem;
     margin-top: 7%;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
 }
 
 .tabla-productos th,
@@ -277,7 +294,7 @@ span.user-name {
     width: 20vw;
 }
 
-.button-delete button{
+.button-delete button {
     width: 60%;
     height: 8vh;
     font-size: 3rem;
@@ -305,4 +322,139 @@ span.user-name {
 .delete-secure {
     font-size: 3.5rem;
     color: red;
+}
+
+.hamburger-btn {
+    display: none;
+}
+
+.lateral-opt {
+    transition: transform 0.3s ease;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+}
+
+/* Overlay visible */
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Cuando el menú está abierto, ocultamos la hamburguesa */
+.lateral-opt.active+.overlay+.hamburger-btn,
+.lateral-opt.active~.hamburger-btn {
+    display: none;
+}
+
+
+
+
+@media screen and (max-width: 1000px) {
+    h2 {
+        font-size: 3.2rem;
+    }
+
+    .con-inv {
+        flex-direction: column;
+    }
+
+    .navbar {
+        align-items: center;
+    }
+
+    .nav-logo {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .nav-logo img {
+        width: 80%;
+    }
+
+    .nav-salir {
+        width: 18vw;
+    }
+
+    .cuerpo-inventario {
+        flex-direction: column;
+    }
+
+    .lateral-opt {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #fff;
+        width: 250px;
+        transform: translateX(-100%);
+        z-index: 1000;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .later-component {
+        min-width: 120px;
+        flex-shrink: 0;
+        text-align: center;
+    }
+
+    .inventary-contain {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .tabla-productos {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        border-collapse: collapse;
+    }
+
+    .tabla-productos th,
+    .tabla-productos td {
+        white-space: nowrap;
+        padding: 0.5rem;
+    }
+
+    .iventary-header {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .buscador {
+        width: 100%;
+    }
+
+    .serch-inventory {
+        width: 100%;
+    }
+
+    .lateral-opt.active {
+        transform: translateX(0);
+    }
+
+    .hamburger-btn {
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 1100;
+    }
 }
