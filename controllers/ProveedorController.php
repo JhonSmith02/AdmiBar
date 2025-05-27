@@ -42,6 +42,7 @@ class ProveedorController
         ]);
     }
 
+
     public static function update(Router $router)
     {
         $id = $_GET['id'];
@@ -70,12 +71,13 @@ class ProveedorController
         ]);
     }
 
-    public static function delete(){
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    public static function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id_proveedor = $_POST['id_proveedor'];
             $id_proveedor = filter_var($id_proveedor, FILTER_VALIDATE_INT);
 
-            if($id_proveedor){
+            if ($id_proveedor) {
                 $proveedor = Proveedor::find($id_proveedor);
 
                 $proveedor->delete();

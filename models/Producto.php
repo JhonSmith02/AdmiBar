@@ -41,13 +41,6 @@ class Producto {
         }
     }
 
-    public function guardar(){
-        if(isset($this->id)){
-            $this->update();
-        } else {
-            $this->save();
-        }
-    }
 
     //Funcion de guardado con sentencias preparadas
     public function save()
@@ -75,11 +68,13 @@ class Producto {
     }
 
     public function update(){
-        
+        //Consulta la metemos en este query
         $query = "UPDATE producto SET nombre = :nombre, marca = :marca, precio = :precio, iva = :iva, descripcion = :descripcion, categoria_id_categoria = :categoria_id_categoria, proveedor_id_proveedor = :proveedor_id_proveedor
         WHERE id_producto = :id_producto";
 
+        //Le decimos a PDO que prepare esta consulta
         $stmt = self::$db->prepare($query);
+
         //Sanitizacion y asociacion de parametros
         $stmt->bindValue(':nombre', strip_tags(trim($this->nombre)), PDO::PARAM_STR);
         $stmt->bindValue(':marca', strip_tags(trim($this->marca)), PDO::PARAM_STR);
@@ -90,9 +85,11 @@ class Producto {
         $stmt->bindValue(':proveedor_id_proveedor', intval($this->proveedor_id_proveedor), PDO::PARAM_INT);
         $stmt->bindValue(':id_producto', intval($this->id_producto), PDO::PARAM_INT);
         
+        //Una vez satinizado los datos vamos a ejecutar la consulta
         $result = $stmt->execute();
 
         if($result){
+            //Si el resultado es true me redirije a la siguiente ubicacion
             header('Location: /productos/admin?msg=2');
             exit;
         }
