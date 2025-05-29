@@ -7,6 +7,7 @@ use MVC\Router;
 use Controllers\ProductoController;
 use Controllers\ProveedorController;
 use Controllers\CategoriaController;
+use Controllers\HomeController;
 use Controllers\LoginController;
 
 $router = new Router();
@@ -14,8 +15,13 @@ $router = new Router();
 //Api Productos
 $router->get('/api/productos', [APIController::class, 'index']);
 
+//Runa por defecto
 $router->get('/', [LoginController::class, 'login']);
 
+//Inicio
+$router->get('/inicio', [HomeController::class, 'index']);
+
+//Rutas productos
 $router->get('/productos/admin', [ProductoController::class, 'index']);
 $router->get('/productos/create', [ProductoController::class, 'create']);
 $router->post('/productos/create', [ProductoController::class, 'create']);

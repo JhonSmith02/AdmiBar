@@ -6,15 +6,17 @@ use MVC\Router;
 use Model\Producto;
 use Model\Categoria;
 use Model\Proveedor;
-
+use Model\admin;
 class ProductoController{
 
     public static function index(Router $router){
 
         $productos = Producto::all();
+        $admin = Admin::user();
 
         $router->render('productos/admin', [
-            'productos' => $productos
+            'productos' => $productos,
+            'admin' => $admin
         ]);
     }
 

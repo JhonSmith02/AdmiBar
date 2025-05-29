@@ -10,9 +10,9 @@ $db = $database->getConnection();
 use Model\Producto;
 use Model\Categoria;
 use Model\Proveedor;
-use Model\usuario;
+use Model\Admin;
 
 Producto::setDB($db);
 Categoria::setDB($db);
 Proveedor::setDB($db);
-
+Admin::setDB($db);

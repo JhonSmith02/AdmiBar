@@ -4,7 +4,7 @@ namespace controllers;
 
 use Model\Proveedor;
 use MVC\router;
-
+use Model\Admin;
 
 class ProveedorController
 {
@@ -12,10 +12,11 @@ class ProveedorController
     public static function index(Router $router)
     {
         $proveedores = Proveedor::all(); //hace un llamado a todos los pro veedores
-
+        $admin = Admin::user();
 
         $router->render('proveedores/admin', [
-            'proveedores' => $proveedores //envia a la vista la informacion para que sea usada
+            'proveedores' => $proveedores, //envia a la vista la informacion para que sea usada
+            'admin' => $admin
         ]);
     }
 

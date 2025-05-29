@@ -31,9 +31,9 @@
                     </ul> -->
                 </div>
 
-                <div class="nav-salir button">
+                <a href="/logout" class="nav-salir button">
                     <span>SALIR</span>
-                </div>
+                </a>
             </div>
 
         </nav>
@@ -46,13 +46,13 @@
                 ☰
             </button>
             <div class="lateral-opt">
-               <a href="/productos/admin" class="later-component">
+               <a href="/inicio" class="later-component">
                     <div class="lateral-icon">
                         <img src="/images/admin.png" alt="">
                     </div>
                     <div class="laterl-information">
                         <!-- <a href="/productos/admin">Productos</a> -->
-                        <span>ADMIN</span>
+                        <span>ADMIN: <?php echo $admin->nombre;?> <?php echo $admin->apellido; ?> </span>
                     </div>
                 </a>
 
@@ -112,6 +112,7 @@
             <?php
 
             echo $contenido;
+
 
             ?>
 
