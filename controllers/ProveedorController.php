@@ -20,10 +20,10 @@ class ProveedorController
         ]);
     }
 
-
     public static function create(Router $router)
     {
         $proveedor = new Proveedor; //Creamos un nuevo objeto de proveedor
+        $admin = Admin::user();
 
         $errors = Proveedor::getErrors(); //Obtenemos los errores de validacion
 
@@ -37,8 +37,9 @@ class ProveedorController
             }
         }
 
-        $router->render('/proveedores/create', [
-            'proveedor' => $proveedor, //Mandamos la informacin a la vista
+        $router->render('/proveedores/create', [//Mandamos la informacin a la vista
+            'proveedor' => $proveedor,
+            'admin' => $admin, 
             'errors' => $errors //Mandamos los errores a la vista
         ]);
     }
@@ -56,6 +57,7 @@ class ProveedorController
 
         $proveedor = Proveedor::find($id);
         $errors = Proveedor::getErrors();
+        $admin = Admin::user();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $proveedor->sincronizar($_POST);
@@ -68,7 +70,8 @@ class ProveedorController
 
         $router->render('/proveedores/update', [
             'proveedor' => $proveedor,
-            'errors' => $errors
+            'errors' => $errors,
+            'admin' => $admin
         ]);
     }
 

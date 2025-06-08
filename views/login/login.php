@@ -45,7 +45,7 @@
                 <h3>Sistema de <br> adminstración</h3>
             </div>
             <div class="logo-formcontainer">
-                <img src="/imagenes/Logo-login.png" alt="Admibar-logo">
+                <img src="/images/Logo-login.png" alt="Admibar-logo">
             </div>
             <div class="creditos">
                 <span>Sistema creado por: <br></span>

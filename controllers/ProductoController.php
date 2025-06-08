@@ -6,7 +6,7 @@ use MVC\Router;
 use Model\Producto;
 use Model\Categoria;
 use Model\Proveedor;
-use Model\admin;
+use Model\Admin;
 class ProductoController{
 
     public static function index(Router $router){
@@ -25,7 +25,7 @@ class ProductoController{
         $producto = new Producto;
         $categorias = Categoria::all();
         $proveedores = Proveedor::all();
-
+        $admin = Admin::user();
         //array con mensaje de error
         $errors = Producto::getErrors();
 
@@ -44,6 +44,7 @@ class ProductoController{
             'producto' => $producto,
             'categorias' => $categorias,
             'proveedores' => $proveedores,
+            'admin' => $admin,
             'errors' => $errors
         ]);
     }
@@ -62,6 +63,7 @@ class ProductoController{
         $errors = Producto::getErrors();
         $categorias = Categoria::all();
         $proveedores = Proveedor::all();
+        $admin = Admin::user();
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -78,7 +80,8 @@ class ProductoController{
             'producto' => $producto,
             'errors' => $errors,
             'categorias' => $categorias,
-            'proveedores' => $proveedores
+            'proveedores' => $proveedores,
+            'admin' => $admin
         ]);
     }
 

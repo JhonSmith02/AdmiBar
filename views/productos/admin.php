@@ -100,7 +100,7 @@
 </div>
 
 <script>
-    const filasPorPagina = 10;
+    const filasPorPagina = 5;
     let paginaActual = 1;
 
     const tabla = document.querySelector(".tabla-productos tbody");
